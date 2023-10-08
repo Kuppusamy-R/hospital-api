@@ -9,6 +9,8 @@
         registryCredential = 'ecr:ap-south-1:JENKINS_IAM_USER_CREDENTIAL'
         appRegistry = "832806402466.dkr.ecr.ap-south-1.amazonaws.com/spring-api"
         springProfileRegistry = "https://832806402466.dkr.ecr.ap-south-1.amazonaws.com"
+        cluster = "test-api-1"
+        service = "test-api-svc"
     }
     stages {
 
@@ -84,6 +86,14 @@
                 dockerImage.push('latest')
                 }
             }
+            }
+        }
+
+        stage('Deploy to ecs') {
+            steps {
+                withAWS(credentials: 'JENKINS_IAM_USER_CREDENTIAL', region: 'ap-south-1') {
+                sh 'aws ecs update-service --cluster ${cluster} --service ${service} --force-new-deployment'
+                }
             }
         }
 
