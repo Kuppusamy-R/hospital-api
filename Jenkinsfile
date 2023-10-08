@@ -10,7 +10,7 @@
         appRegistry = "832806402466.dkr.ecr.ap-south-1.amazonaws.com/spring-api"
         springProfileRegistry = "https://832806402466.dkr.ecr.ap-south-1.amazonaws.com"
         cluster = "test-api-1"
-        service = "test-api-svc"
+        service = "test-api-svc1"
     }
     stages {
 
