@@ -2,6 +2,8 @@ package com.app.api.controller;
 
 import java.util.List;
 
+import javax.print.attribute.standard.Media;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.app.api.entities.Patient;
 import com.app.api.service.PatientService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {"http://localhost:3000", "https://endearing-cascaron-25820e.netlify.app"})
 @RestController
 public class PatientController {
 	

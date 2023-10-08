@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.app.api.entities.Patient;
 
 @Repository
-public interface PatientRepository extends CrudRepository<Patient, Integer> {
+public interface PatientRepository extends CrudRepository <Patient, Integer> {
 
 	List <Patient> findByDeletedAtNull();
 }
