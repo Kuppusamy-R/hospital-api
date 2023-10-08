@@ -79,12 +79,12 @@
 
     stage('Upload App Image') {
             steps{
-            script {
-                // docker.withRegistry( springProfileRegistry, registryCredential ) {
-                // dockerImage.push("$BUILD_NUMBER")
-                // dockerImage.push('latest')
-                // }
-            }
+            // script {
+            //     // docker.withRegistry( springProfileRegistry, registryCredential ) {
+            //     // dockerImage.push("$BUILD_NUMBER")
+            //     // dockerImage.push('latest')
+            //     // }
+            // }
             }
         }
 
