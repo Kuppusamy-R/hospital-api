@@ -66,9 +66,9 @@
 
     stage('Build App Image') {
         steps {
-            sh "pwd";
-            sh "ls";
-            sh "echo '${appRegistry}:${BUILD_NUMBER}'";
+            sh "pwd"
+            sh "ls"
+            sh "echo '${appRegistry}:${BUILD_NUMBER}'"
             script {
                 dockerImage = docker.build( appRegistry + ":$BUILD_NUMBER", ".")
                 }
