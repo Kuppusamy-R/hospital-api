@@ -12,7 +12,6 @@
     }
     stages {
 
-
         // stage('Fetch code'){
         //     steps {
         //     git branch: 'main', url: 'https://github.com/Kuppusamy-R/hospital-api.git'
@@ -78,14 +77,14 @@
         }
 
         stage('Upload App Image') {
-            steps{
+            // steps{
             // script {
             //     // docker.withRegistry( springProfileRegistry, registryCredential ) {
             //     // dockerImage.push("$BUILD_NUMBER")
             //     // dockerImage.push('latest')
             //     // }
             // }
-            }
+            // }
         }
 
     }
