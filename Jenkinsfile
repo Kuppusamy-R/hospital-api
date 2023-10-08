@@ -68,24 +68,24 @@
                 sh "pwd"
                 sh "ls"
                 sh "echo '${appRegistry}:${BUILD_NUMBER}'"
-                // script {
-                //     dockerImage = docker.build( appRegistry + ":$BUILD_NUMBER", ".")
-                //     }
+                script {
+                    dockerImage = docker.build( appRegistry + ":$BUILD_NUMBER", ".")
+                    }
 
             }
 
         }
 
-        // stage('Upload App Image') {
-        //     // steps{
-        //     // script {
-        //     //     // docker.withRegistry( springProfileRegistry, registryCredential ) {
-        //     //     // dockerImage.push("$BUILD_NUMBER")
-        //     //     // dockerImage.push('latest')
-        //     //     // }
-        //     // }
-        //     // }
-        // }
+        stage('Upload App Image') {
+            steps{
+            script {
+                docker.withRegistry( springProfileRegistry, registryCredential ) {
+                dockerImage.push("$BUILD_NUMBER")
+                dockerImage.push('latest')
+                }
+            }
+            }
+        }
 
     }
     post {
