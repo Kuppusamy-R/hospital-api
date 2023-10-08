@@ -25,16 +25,16 @@
     //   }
     // }
 
-    // stage ('CODE ANALYSIS WITH CHECKSTYLE'){
-    //         steps {
-    //             sh 'mvn checkstyle:checkstyle'
-    //         }
-    //         post {
-    //             success {
-    //                 echo 'Generated Analysis Result'
-    //             }
-    //         }
-    //     }
+    stage ('CODE ANALYSIS WITH CHECKSTYLE'){
+            steps {
+                sh 'mvn checkstyle:checkstyle'
+            }
+            post {
+                success {
+                    echo 'Generated Analysis Result'
+                }
+            }
+        }
 
         // stage('build && SonarQube analysis') {
         //     environment {
@@ -83,7 +83,7 @@
                 // docker.withRegistry( springProfileRegistry, registryCredential ) {
                 // dockerImage.push("$BUILD_NUMBER")
                 // dockerImage.push('latest')
-                }
+                // }
             }
             }
         }
