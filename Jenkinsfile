@@ -25,16 +25,16 @@
     //   }
     // }
 
-    stage ('CODE ANALYSIS WITH CHECKSTYLE'){
-            steps {
-                sh 'mvn checkstyle:checkstyle'
-            }
-            post {
-                success {
-                    echo 'Generated Analysis Result'
-                }
-            }
-        }
+    // stage ('CODE ANALYSIS WITH CHECKSTYLE'){
+    //         steps {
+    //             sh 'mvn checkstyle:checkstyle'
+    //         }
+    //         post {
+    //             success {
+    //                 echo 'Generated Analysis Result'
+    //             }
+    //         }
+    //     }
 
         // stage('build && SonarQube analysis') {
         //     environment {
@@ -54,7 +54,7 @@
         //     }
         // }
 
-        stage("Quality Gate") {
+        stage("Quality Gate") { 
             steps {
                 timeout(time: 1, unit: 'HOURS') {
                     // Parameter indicates whether to set pipeline to UNSTABLE if Quality Gate fails
