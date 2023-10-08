@@ -12,17 +12,12 @@
     }
     stages {
 
-    stage('Clean Workspace'){
-        steps {
-            cleanWs()
-        }
-    }
 
-    stage('Fetch code'){
-        steps {
-        git branch: 'main', url: 'https://github.com/Kuppusamy-R/hospital-api.git'
-        }
-    }
+    // stage('Fetch code'){
+    //     steps {
+    //     git branch: 'main', url: 'https://github.com/Kuppusamy-R/hospital-api.git'
+    //     }
+    // }
 
     // stage('Test'){
     //   steps {
@@ -71,7 +66,9 @@
 
     stage('Build App Image') {
         steps {
-        
+            sh "pwd";
+            sh "ls";
+            sh "echo '${appRegistry}:${BUILD_NUMBER}'";
             script {
                 dockerImage = docker.build( appRegistry + ":$BUILD_NUMBER", ".")
                 }
@@ -90,6 +87,13 @@
             }
             }
         }
+
+    post {
+        // Clean after build
+        always {
+            cleanWs()
+        }
+    }
 
     }
     }
