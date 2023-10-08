@@ -11,6 +11,13 @@
         springProfileRegistry = "https://832806402466.dkr.ecr.ap-south-1.amazonaws.com"
     }
     stages {
+
+    stage('Clean Workspace'){
+        steps {
+            cleanWs()
+        }
+    }
+
     stage('Fetch code'){
         steps {
         git branch: 'docker', url: 'https://github.com/Kuppusamy-R/hospital-api.git'
@@ -30,17 +37,6 @@
             post {
                 success {
                     echo 'Generated Analysis Result'
-                }
-            }
-        }
-
-    stage ('Buid with Maven'){
-            steps {
-                sh 'mvn install'
-            }
-            post {
-                success {
-                    echo 'Maven build success!'
                 }
             }
         }
