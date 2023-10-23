@@ -1,0 +1,8 @@
+server:    
+  port: 8080
+  ssl:
+    key-alias: spring-https
+    key-password: password
+    key-store-type: JKS
+    key-store: classpath:javatechie.jks
+    key-store-password: password
